@@ -44,4 +44,10 @@ public class UserController {
         Pageable pageable = PageRequest.of(page, size);
         return ResponseEntity.status(HttpStatus.OK).body(this.userReadService.getAllClientOrder(pageable));
     }
+
+    @GetMapping("/getClient/average")
+    public ResponseEntity<?> getAverage(){
+        return ResponseEntity.status(HttpStatus.OK).body(this.userReadService.getAverageClient());
+    }
+
 }

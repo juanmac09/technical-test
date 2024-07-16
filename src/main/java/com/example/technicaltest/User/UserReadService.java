@@ -10,6 +10,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
 import java.util.Date;
+import java.util.List;
 
 
 @Service
@@ -33,4 +34,8 @@ public class UserReadService implements IUserReadService{
         return this.UserRepository.findAllByOrderByBornDateAsc(pageable);
     }
 
+
+    public List<UserReport> getAverageClient() {
+        return this.UserRepository.findCountUsersAndAverageAge();
+    }
 }
