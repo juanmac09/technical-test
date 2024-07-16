@@ -6,19 +6,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.data.domain.Pageable;
 
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
+import java.util.Date;
+
 
 @Service
 public class UserReadService implements IUserReadService{
 
 
-    private final UserReadRepository UserReporsitory;
+    private final UserReadRepository UserRepository;
 
     @Autowired
-    public UserReadService(UserReadRepository UserReporsitory) {
-        this.UserReporsitory = UserReporsitory;
+    public UserReadService(UserReadRepository UserRepository) {
+        this.UserRepository = UserRepository;
     }
 
     public Page<User> getAllClient(Pageable pageable) {
-        return this.UserReporsitory.findAllByOrderByNameAsc(pageable);
+        return this.UserRepository.findAllByOrderByNameAsc(pageable);
     }
+
+
+    public Page<UserProjection> getAllClientOrder(Pageable pageable) {
+
+        return this.UserRepository.findAllByOrderByBornDateAsc(pageable);
+    }
+
 }

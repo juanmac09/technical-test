@@ -38,4 +38,10 @@ public class UserController {
         Pageable pageable = PageRequest.of(page, size);
         return ResponseEntity.status(HttpStatus.OK).body(this.userReadService.getAllClient(pageable));
     }
+
+    @GetMapping("/getAllClientOrder/page/{page}/size/{size}")
+    public ResponseEntity<?> getAllClientOrder(@PathVariable Integer page,@PathVariable Integer size){
+        Pageable pageable = PageRequest.of(page, size);
+        return ResponseEntity.status(HttpStatus.OK).body(this.userReadService.getAllClientOrder(pageable));
+    }
 }

@@ -6,6 +6,11 @@ import org.springframework.validation.annotation.Validated;
 import jakarta.persistence.*;
 import static jakarta.persistence.GenerationType.*;
 import jakarta.validation.constraints.*;
+
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.Period;
 import java.util.Date;
 
 
@@ -72,6 +77,7 @@ public class User implements Serializable {
     public void setBornDate(Date bornDate) {
         this.bornDate = bornDate;
     }
+
 
 }
 
